@@ -1,0 +1,25 @@
+{
+  "name": "spreadful",
+  "authors": [
+    "Jason <floresj4@gmail.com>"
+  ],
+  "description": "spreadbase rest service",
+  "main": "index.html",
+  "keywords": [
+    "spreadbase",
+    "rest"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "https://github.com/twbs/bootstrap.git#^3.3.7"
+  }
+}
