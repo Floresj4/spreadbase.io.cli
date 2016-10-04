@@ -4,3 +4,20 @@
 #upload-form input {
 	margin-bottom:5px;
 }
+
+#footer ul {
+	list-style:none;
+	padding:0;
+}
+
+#footer li img {
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px
+}
+
+#project-info {
+	text-align: justify;
+}
