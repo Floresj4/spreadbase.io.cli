@@ -4,8 +4,16 @@
 	<link rel='stylesheet' type="text/css" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
 	<link rel="stylesheet" type="text/css" href="style/site.css" />
 	<link rel="stylesheet" type="text/css" href="style/index.css" />
+	<script type="text/javascript">
+		function init() {
+			var uploadFile = document.getElementById("fileUpload")
+			uploadFile.addEventListener('change', function() {
+				console.log('change');
+			}, false);
+		}
+	</script>
 </head>
-<body>
+<body onload="init">
 	
 	<div id='main-container' class='container-fluid'>
 		
@@ -30,11 +38,15 @@
 		
 		<div id='upload-form'>
 			
-			<form method="post">
-				<input class="btn btn-default" type="file" placeholder="Upload a file" />
-				<input class="btn btn-default" type='Submit' value='Submit' />
+			<form action="/">
+				<input id='fileUpload' class="btn btn-default" type="file" placeholder="Upload a file" />
+				<input id='submit'
+					   class="btn btn-default" 
+					   type='Submit' 
+					   accept="application/*"
+					   value='Submit' />
 			</form>
-			
+
 		</div>
 		
 		<div id='footer'>

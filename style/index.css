@@ -1,8 +1,22 @@
 #upload-form {
 }
 
+#upload-form {
+	display: block;
+	width: 85%;
+	margin: 25px auto;
+	height:40px;
+}
+
 #upload-form input {
-	margin-bottom:5px;
+	margin-bottom:10px;
+	margin-right:10px;
+	display:inline-block;
+	float:left;
+}
+
+#footer {
+	clear:both;
 }
 
 #footer ul {
@@ -12,7 +26,7 @@
 
 #footer li img {
     display: block;
-    width: 50%;
+    width: 30%;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 10px
