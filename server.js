@@ -1,29 +1,16 @@
 "use strict";
 
-var fs = require("fs");
-var http = require("http");
-var dispatcher = require("httpdispatcher");
+var express = require("express");
+var app = express();
+var path = require('path');
 
 const PORT = 8000;
 
-function handleRequest(request, response) {
-	try {	//log and dispatch
-		console.log(request.url);
-		dispatcher.dispatch(request, response);
-	} catch(err) {
-		console.log(err);
-	}
-}
-
-//initialize the server
-var server = http.createServer(handleRequest);
-server.listen(PORT, function() {
-	console.log("Server listening on port: " + PORT);
+app.get("/", function(req, res){
+	console.log("Get /");
+	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-dispatcher.onGet("/index", function(request, response) {
-	response.writeHead(200, {'Content-Type': 'text/html'});
-    
-	//load page
-	fs.createReadStream('index.html').pipe(response);
+app.listen(PORT, function() {
+	console.log("listenining on port " + PORT);
 });
