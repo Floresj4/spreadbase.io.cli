@@ -4,9 +4,6 @@
   "description": "spreadbase rest service",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js"
-  },
-  "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,5 +11,9 @@
     "rest"
   ],
   "author": "floresj4@gmail.com",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.14.0",
+    "httpdispatcher": "^1.0.0"
+  }
 }
