@@ -4,13 +4,14 @@ var express = require("express");
 var app = express();
 var path = require('path');
 
-const PORT = 8000;
+app.use(express.static(__dirname + '/images'));
+app.use(express.static(__dirname + '/style'));
 
 app.get("/", function(req, res){
 	console.log("Get /");
 	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.listen(PORT, function() {
-	console.log("listenining on port " + PORT);
+app.listen(8000, function() {
+	console.log("listenining on port " + 8000);
 });
