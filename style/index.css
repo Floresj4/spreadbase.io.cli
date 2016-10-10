@@ -4,7 +4,7 @@
 #upload-form {
 	display: block;
 	width: 85%;
-	margin: 25px auto;
+	margin: 25px auto 100px auto;
 	height:40px;
 }
 
@@ -34,4 +34,8 @@
 
 #project-info {
 	text-align: justify;
+}
+
+.support-lib-text {
+	font-size:8px;
 }
