@@ -3,7 +3,7 @@ var CommentBox = React.createClass({
   render: function() {
     return (
       <div className="commentBox">
-        <h1>Comments</h1>
+		<div className='page-header'><h1>Comments</h1></div>
 		
 		<CommentList />
 		<CommentForm />
@@ -39,7 +39,7 @@ var Comment = React.createClass({
 		return (
 			<div className='comment'>
 				<h2 className='commentAuthor'>
-					{this.props.author}
+					<small>{this.props.author}</small>
 				</h2>
 				{this.props.children}
 			</div>
