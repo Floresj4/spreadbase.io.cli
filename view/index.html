@@ -1,6 +1,12 @@
 <html lang='en'>
 <head>
 	<title></title>
+	<script src="https://unpkg.com/react@15.3.2/dist/react.js"></script>
+    <script src="https://unpkg.com/react-dom@15.3.2/dist/react-dom.js"></script>
+	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script>
+    <script src="https://unpkg.com/remarkable@1.7.1/dist/remarkable.min.js"></script>
+	<script type="text/babel" src="/comment-box.js"></script>
 	<link rel='stylesheet' type="text/css" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
 	<link rel="stylesheet" type="text/css" href="/site.css" />
 	<link rel="stylesheet" type="text/css" href="/index.css" />
@@ -91,9 +97,8 @@
   				</div>
 			</div>
 
-			<div>
-				<a href='https://spring.io/guides/gs/rest-service-cors/#_enabling_cors'>rest-service-cors: Enabling CORS</a>
-			</div>
+			<div id='content'></div>
+			
 		</div>
 	</div>
 	
