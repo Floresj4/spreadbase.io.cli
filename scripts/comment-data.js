@@ -6,5 +6,6 @@
 		"id": 4, 
 		"author": "Ipsum Lorem", 
 		"text": "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium "
-	}
+	},
+	{"id": 5, "author": "DJ Snake ", "text": "The Half"}
 ]

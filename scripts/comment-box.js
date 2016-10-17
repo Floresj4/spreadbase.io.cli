@@ -73,9 +73,23 @@ var CommentList = React.createClass({
 var CommentForm = React.createClass({
   render: function() {
     return (
-      <div className="commentForm">
+		<form>
+			<div className="commentForm">
+				<h4>Add your comment</h4>
 
-      </div>
+				<div className="form-group">
+					<label htmlFor="inputName">Name</label>
+					<input type='text' className="form-control" id='inputName' placeholder='Your name' />
+				</div>
+				<div className="form-group">
+					<label htmlFor="inputComment">Name</label>
+					<input type='text' className="form-control" id='inputComment' placeholder='Say something...' />
+				</div>
+				<div className="form-group">
+					<input type='submit' className="btn btn-default" value='Post' />
+				</div>
+			</div>
+		</form>
     );
   }
 });
