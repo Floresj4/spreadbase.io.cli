@@ -15,7 +15,27 @@ var CommentBox = React.createClass({
 		console.log('component mounted');
 	},
 	
-	handleCommentSubmit: function() {
+	handleCommentSubmit: function(comment) {
+		console.log('posting ' + comment.author + ' ' + comment.text);
+
+		$.ajax({
+			
+			url: 'http://localhost:8080/',
+			type: 'POST',
+			data: comment,
+			success: function(data) {
+				
+				console.log(data);
+//				this.setState({data: data});
+				
+			}.bind(this),
+			error: function(xhr, status, err) {
+			
+				console.log(this.props.url, status, err.toString());
+				
+			}.bind(this)
+			
+		});
 		
 	},
 
@@ -39,6 +59,7 @@ var CommentBox = React.createClass({
 	},
 	
 	render: function() {
+		console.log
 		return (
 			<div className="commentBox">
 				<div className='page-header'><h3>Comments</h3></div>
@@ -91,7 +112,7 @@ var CommentForm = React.createClass({
 		
 		//callback passed in from the parent CommentBox
 		this.props.onCommentSubmit({author: author, text: text });
-		this.setState({author: '', text: ''});
+//		this.setState({author: '', text: ''});
 	},
 
 	handleTextChange: function(e) {
@@ -140,6 +161,6 @@ var Comment = React.createClass({
 
 
 ReactDOM.render(
-  <CommentBox pollInterval={2000}/>,
+  <CommentBox pollInterval={2000} />,
   document.getElementById('content')
 );
