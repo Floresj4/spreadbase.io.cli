@@ -25,8 +25,12 @@ var CommentBox = React.createClass({
 			data: comment,
 			success: function(data) {
 				
-				console.log(data);
-//				this.setState({data: data});
+				var comments = this.state.data.map(function(entry){
+					return entry;
+				});
+				comments.push(comment);
+				
+				this.setState({data: comments});
 				
 			}.bind(this),
 			error: function(xhr, status, err) {
