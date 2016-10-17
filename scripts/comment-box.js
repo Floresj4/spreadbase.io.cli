@@ -1,16 +1,40 @@
-var data = [
-	{id: 1, author: "Lennox Zion", text: "Good stuff!"},
-	{id: 2, author: "Marshmellow", text: "Keep it mello..."}
-];
+"use strict";
 
 var CommentBox = React.createClass({
+	
+	//execute once during the lifecycle
+	getInitialState: function() {
+		return { data:[] };
+	},
+	
+	componentDidMount: function() {
+		
+		$.ajax({
+			url: 'comment-data.js',
+			dataType: 'json',
+			cache: false,
+			success: function(data){
+				
+				this.setState({data: data});
+				console.log(data);
+				
+			}.bind(this),
+			error: function(xhr, status, err){
+				
+				console.error('comment-data.js', status, err.toString());
+				
+			}.bind(this)
+		});
+		
+		console.log('component mounted');
+	},
+	
 	render: function() {
 		return (
 			<div className="commentBox">
 				<div className='page-header'><h3>Comments</h3></div>
 		
-				<CommentList data={this.props.data} />
-				
+				<CommentList data={this.state.data} />
 				<CommentForm />
 			</div>
 		);
@@ -63,6 +87,6 @@ var Comment = React.createClass({
 
 
 ReactDOM.render(
-  <CommentBox data={data} />,
+  <CommentBox />,
   document.getElementById('content')
 );
