@@ -9,6 +9,14 @@ var CommentBox = React.createClass({
 	
 	componentDidMount: function() {
 		
+		this.loadCommentsFromServer();
+		setInterval(this.loadCommentsFromServer, this.props.pollInterval);
+		
+		console.log('component mounted');
+	},
+	
+	loadCommentsFromServer: function() {
+		
 		$.ajax({
 			url: 'comment-data.js',
 			dataType: 'json',
@@ -26,7 +34,7 @@ var CommentBox = React.createClass({
 			}.bind(this)
 		});
 		
-		console.log('component mounted');
+		console.log('comments loaded');
 	},
 	
 	render: function() {
@@ -87,6 +95,6 @@ var Comment = React.createClass({
 
 
 ReactDOM.render(
-  <CommentBox />,
+  <CommentBox pollInterval={2000}/>,
   document.getElementById('content')
 );
