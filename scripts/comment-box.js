@@ -15,6 +15,10 @@ var CommentBox = React.createClass({
 		console.log('component mounted');
 	},
 	
+	handleCommentSubmit: function() {
+		
+	},
+
 	loadCommentsFromServer: function() {
 		
 		$.ajax({
@@ -24,7 +28,6 @@ var CommentBox = React.createClass({
 			success: function(data){
 				
 				this.setState({data: data});
-				console.log(data);
 				
 			}.bind(this),
 			error: function(xhr, status, err){
@@ -33,8 +36,6 @@ var CommentBox = React.createClass({
 				
 			}.bind(this)
 		});
-		
-		console.log('comments loaded');
 	},
 	
 	render: function() {
@@ -43,7 +44,7 @@ var CommentBox = React.createClass({
 				<div className='page-header'><h3>Comments</h3></div>
 		
 				<CommentList data={this.state.data} />
-				<CommentForm />
+				<CommentForm onCommentSubmit={this.handleCommentSubmit} />
 			</div>
 		);
 	}
@@ -71,27 +72,57 @@ var CommentList = React.createClass({
 
 
 var CommentForm = React.createClass({
-  render: function() {
-    return (
-		<form>
-			<div className="commentForm">
-				<h4>Add your comment</h4>
+	getInitialState : function() {
+		return {author: '', text: ''};
+	},
 
-				<div className="form-group">
-					<label htmlFor="inputName">Name</label>
-					<input type='text' className="form-control" id='inputName' placeholder='Your name' />
+	handleAuthorChange: function(e) {
+		this.setState({author: e.target.value});
+	},
+
+	handleSubmit: function(e) {
+		//prevent the default submit
+		e.preventDefault();
+		
+		var author = this.state.author.trim();
+		var text = this.state.text.trim();
+		if(!author || !text)
+			return;
+		
+		//callback passed in from the parent CommentBox
+		this.props.onCommentSubmit({author: author, text: text });
+		this.setState({author: '', text: ''});
+	},
+
+	handleTextChange: function(e) {
+		this.setState({text: e.target.value});
+	},
+
+	render: function() {
+		return (
+			<form onSubmit={this.handleSubmit}>
+				<div className="commentForm">
+					<h4>Add your comment</h4>
+
+					<div className="form-group">
+						<label htmlFor="inputName">Name</label>
+						<input type='text' className="form-control" id='inputName' placeholder='Your name'
+							value={this.state.author}
+							onChange={this.handleAuthorChange} />
+					</div>
+					<div className="form-group">
+						<label htmlFor="inputComment">Name</label>
+						<input type='text' className="form-control" id='inputComment' placeholder='Say something...'
+							value={this.state.text}
+							onChange={this.handleTextChange} />
+					</div>
+					<div className="form-group">
+						<input type='submit' className="btn btn-default" value='Post' />
+					</div>
 				</div>
-				<div className="form-group">
-					<label htmlFor="inputComment">Name</label>
-					<input type='text' className="form-control" id='inputComment' placeholder='Say something...' />
-				</div>
-				<div className="form-group">
-					<input type='submit' className="btn btn-default" value='Post' />
-				</div>
-			</div>
-		</form>
-    );
-  }
+			</form>
+    	);
+	}
 });
 
 var Comment = React.createClass({
