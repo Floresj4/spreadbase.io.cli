@@ -6,7 +6,8 @@
 	<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
     <script src="https://unpkg.com/jquery@3.1.0/dist/jquery.min.js"></script>
     <script src="https://unpkg.com/remarkable@1.7.1/dist/remarkable.min.js"></script>
-	<script type="text/babel" src="/comment-box.js"></script>
+	<script type="text/babel" src="/upload.js"></script>
+	<script type="text/babel" src="/version.js"></script>
 	<link rel='stylesheet' type="text/css" href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css' />
 	<link rel="stylesheet" type="text/css" href="/site.css" />
 	<link rel="stylesheet" type="text/css" href="/index.css" />
@@ -15,7 +16,7 @@
 	
 	<div id='main-container' class='container-fluid'>
 		
-		<h2>spreadbase.io</h2>
+		<h2>spreadbase.io <span id='version'></span></h2>
 		
 		<p id='project-info'>
 			Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
@@ -34,25 +35,14 @@
 			vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?
 		</p>
 		
-		<div id='upload-form'>
-			
-			<form method='post' action="/">
-				<input id='fileUpload' class="btn btn-default" type="file" placeholder="Upload a file" />
-				<input id='submit'
-					   class="btn btn-default" 
-					   type='Submit' 
-					   accept="application/*"
-					   value='Submit' />
-			</form>
-
-		</div>
+		<div id='upload-form'></div>
 		
 		<div id='footer'>
 			
 			<div class="row">
 				<div class="col-sm-12 col-md-4">
 					<div class="thumbnail remove-border">
-						<img src="/node_logo.png" alt="NodeJS">
+						<img src="/node_logo.png" alt="NodeJS" />
 							<div class="caption support-lib-text">
 								<p>
 									Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
@@ -67,7 +57,7 @@
   				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail remove-border">
-						<img src="/asf_logo.png" alt="Apache POI">
+						<img src="/asf_logo.png" alt="Apache POI" />
 							<div class="caption support-lib-text">
 								<p>
 									Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
@@ -82,7 +72,7 @@
   				</div>
 				<div class="col-sm-6 col-md-4">
 					<div class="thumbnail remove-border">
-						<img src="/bootstrap.png" alt="Bootstrap">
+						<img src="/bootstrap.png" alt="Bootstrap" />
 							<div class="caption support-lib-text">
 								<p>
 									Sed ut perspiciatis unde omnis iste natus error sit voluptatem 
