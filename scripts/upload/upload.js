@@ -23,7 +23,7 @@ var UploadForm = React.createClass({
 			 */
 			contentType: false, 
 			success: function(data, status, xhr) {
-				console.log('done');
+				console.log("success");
 			},
 			error: function(xhr, status, err) {
 				console.log(xhr.toString() + ' ' + status + ' ' + err);
